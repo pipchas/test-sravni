@@ -1,0 +1,143 @@
+$primaryColor: #fbfbfb;
+$hoverColor: #1ab7ff;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.custom__container {
+  max-width: 1370px;
+  padding: 16px 16px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+header,
+footer {
+  background: #ffffff;
+  height: 88px;
+  border: 1px solid rgb(232 232 234);
+} /*# sourceMappingURL=main.css.map */
+
+.footer__panel {
+  display: flex;
+  height: 100%;
+  padding: 0 16px;
+  justify-content: space-between;
+  align-items: center;
+  &__social {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.header__panel {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.cards__box {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 775px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cards__photo {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 16px;
+}
+
+main {
+  flex: 1;
+  background-color: $primaryColor;
+}
+
+a {
+  text-decoration: none;
+  color: #171d23;
+}
+
+a:hover {
+  color: $hoverColor;
+  transition: all 0.3s;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.preloader__spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #ff7f50;
+  border-radius: 50%;
+  animation: loader 1s linear infinite;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error-animation {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  animation: error-pulse 1s ease-in-out infinite;
+}
+
+@keyframes error-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
