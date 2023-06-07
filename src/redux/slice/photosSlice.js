@@ -20,7 +20,7 @@ export const fetchPhotos = createAsyncThunk(
 const photosSlice = createSlice({
     name: 'allPhotos',
     initialState: {
-        allPhotos: [],
+        data: [],
         status: null,
         error: null,
     },
@@ -30,7 +30,7 @@ const photosSlice = createSlice({
         },
         [fetchPhotos.fulfilled]: (state, action) => {
             state.status = 'success'
-            state.allPhotos = action.payload
+            state.data = action.payload
         },
         [fetchPhotos.rejected]: (state, action) => {
             state.status = 'rejected'

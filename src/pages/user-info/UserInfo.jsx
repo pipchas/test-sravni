@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { useGetPhotos } from "../../utils/hooks/use-get-photos"
-import { useGetUserById } from "../../utils/hooks/use-get-persons-by-id"
+import { useGetUserById } from "../../utils/hooks/use-get-users-by-id"
 import Pagination from "../../components/pagination/Pagination"
 import PhotoCard from "../../components/cards/PhotoCard"
 import Loading from "../../components/app-state/Loading"
@@ -16,33 +16,33 @@ const UserInfo = () => {
     const [offset, setOffset] = useState(1);
     const [limit] = useState(10);
 
-    // console.log(offset, limit, page)
-
     const onPageChange = (newPage) => {
         const newOffset = newPage * limit - (limit - 1);
         setOffset(newOffset);
         setPage(newPage);
     };
 
-    const { userStatus, userError, userById } = useGetUserById({ id: personsId })
-    const { status, error, photos } = useGetPhotos({ limit, offset })
+    const { status: userStatus, error: userError, data: userData } = useGetUserById({ id: personsId })
+    const { status: photoStatus, error: photoError, data: photoData } = useGetPhotos({ limit, offset })
 
-    if (status === 'loading') {
-        return <Loading />
-    }
+    console.log(userData?.length)
 
-    if (!userById) {
+    if (userData?.length === 0) {
         return <Error error='Пользователя по такому ID не существует' />
     }
 
-    if (status === 'error') {
-        return <Error error={error}/>
+    if (photoStatus === 'loading' || userStatus === 'loading') {
+        return <Loading />
+    }
+
+    if (photoStatus === 'error' || userStatus === 'error') {
+        return <Error error={photoError}/>
     }
 
     return (
         <div className="custom__container">
-            <div className="cards__box">
-                {photos?.map((photoItem) => <PhotoCard key={userById?.id} id={userById?.id} photo={photoItem} />)}
+            <div className="cards__box__photos">
+                {photoData?.map((photoItem) => <PhotoCard key={photoItem.id} id={userData?.id} photo={photoItem} />)}
             </div>
             <Pagination
                 onPageChange={onPageChange}

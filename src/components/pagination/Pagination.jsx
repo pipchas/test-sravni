@@ -9,7 +9,7 @@ const Pagination = ({ page, limit, onPageChange, offset, total }) => {
     );
 
     return (
-        <div>
+        <div className="pagination">
             <button
                 disabled={page === 1}
                 className="button"

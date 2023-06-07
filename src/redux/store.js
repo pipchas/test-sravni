@@ -6,7 +6,7 @@ import photosReducer from './slice/photosSlice';
 export const store = configureStore({
     reducer: {
         [personsInfoApi.reducerPath]: personsInfoApi.reducer,
-        allPersons: personsReducer,
+        allUsers: personsReducer,
         allPhotos: photosReducer,
     },
     middleware: (getDefMiddlware) => getDefMiddlware().concat([personsInfoApi.middleware])

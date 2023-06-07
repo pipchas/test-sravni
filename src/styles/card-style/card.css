@@ -13,9 +13,16 @@
 }
 .card__photos {
   display: flex;
-  max-width: 250px;
+  flex-direction: column;
+  width: 80px;
   align-items: center;
   justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgb(232, 232, 234);
+  box-shadow: inset;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .card__button {
   display: flex;

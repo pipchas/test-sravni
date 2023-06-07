@@ -8,7 +8,8 @@ export const useGetPhotos = ({ limit, offset }) => {
     useEffect(() => {
         dispatch(fetchPhotos({ limit, offset }))
     }, [offset])
-    const { status, error, allPhotos: photos } = useSelector((state) => state.allPhotos)
+    const { status, error, data } = useSelector((state) => state.allPhotos)
+    
 
-    return { status, error, photos }
+    return { status, error, data }
 }

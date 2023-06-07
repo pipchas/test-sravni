@@ -6,7 +6,7 @@ import Loading from "../../components/app-state/Loading"
 
 const MainPage = () => {
 
-    const { status, error, users } = useGetUsers()
+    const { status, error, data: allUsers } = useGetUsers()
 
     if (status === 'loading') {
         return <Loading />
@@ -19,7 +19,7 @@ const MainPage = () => {
     return (
         <div className="custom__container">
             <div className="cards__box">
-                {users?.map((personItem) => <Card key={personItem?.id} personData={personItem} />)}
+                {allUsers?.map((personItem) => <Card key={personItem?.id} personData={personItem} />)}
             </div>
         </div>
     )

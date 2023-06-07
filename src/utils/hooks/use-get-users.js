@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
-import { fetchPersons } from "../../redux/slice/personsSlice"
+import { fetchUsers } from "../../redux/slice/personsSlice"
 import { useEffect } from "react"
 
 export const useGetUsers = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchPersons())
+        dispatch(fetchUsers())
     }, [])
-    const { status, error, allPersons: users } = useSelector((state) => state.allPersons)
+    const { status, error, data } = useSelector((state) => state.allUsers.allUsers)
 
-    return { status, error, users }
+    return { status, error, data }
 }

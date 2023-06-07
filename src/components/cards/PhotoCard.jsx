@@ -3,11 +3,11 @@ import '../../styles/card-style/card.css'
 const PhotoCard = ({ id, photo }) => {
 
     return (
-        <div className="card card__photos">
+        <div className="card__photos">
             <div>
                 <img src={photo?.thumbnailUrl} />
             </div>
-            <div>ID пользователя: {id}</div>
+            <div>ID: {id}</div>
         </div>
     )
 }
