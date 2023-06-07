@@ -72,12 +72,12 @@ main {
 
 a {
   text-decoration: none;
-  color: #171d23;
+  color: #1ab7ff;
 }
 
 a:hover {
-  color: #1ab7ff;
   transition: all 0.3s;
+  color: #0c88bf
 }
 
 img {
