@@ -20,7 +20,6 @@ const MainPage = () => {
         <div className={s.container}>
             <div className={s.cards__box}>
                 {allUsers?.map((personItem) => {
-                    console.log(personItem)
                     return (
                         <div className={s.cards__wrapper}>
                             <Card key={personItem?.id} personData={personItem} />
