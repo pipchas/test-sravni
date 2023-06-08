@@ -1,9 +1,9 @@
-import '../../styles/card-style/card.css'
+import s from'../../styles/cardStyle/card.module.scss'
 
 const PhotoCard = ({ id, photo }) => {
 
     return (
-        <div className="card__photos">
+        <div className={s.card__photos}>
             <div>
                 <img src={photo?.thumbnailUrl} />
             </div>

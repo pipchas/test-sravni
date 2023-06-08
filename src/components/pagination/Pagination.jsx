@@ -1,36 +1,36 @@
-import { useMemo } from "react";
+import s from "../../styles/buttonStyle/button.module.scss"
 
 const Pagination = ({ page, limit, onPageChange, offset, total }) => {
 
-    const pageCount =
-    useMemo(
-      () => Math.ceil(total / limit),
-      [total, limit]
-    );
+    const pageCount = Math.ceil(total / limit)
+
+    const increment = () => {
+        page++
+        onPageChange(page)
+    }
+
+    const decrement = () => {
+        page--
+        onPageChange(page)
+    }
 
     return (
-        <div className="pagination">
+        <>
             <button
                 disabled={page === 1}
-                className="button"
-                onClick={() => {
-                    page--
-                    onPageChange(page)
-                }}
+                className={s.button}
+                onClick={decrement}
             >
                 Назад
             </button>
             <button
                 disabled={page === pageCount}
-                className="button"
-                onClick={() => {
-                    page++
-                    onPageChange(page)
-                }}
+                className={s.button}
+                onClick={increment}
             >
                 Вперед
             </button>
-        </div >
+        </>
     )
 }
 

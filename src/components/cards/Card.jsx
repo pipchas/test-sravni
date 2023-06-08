@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-import '../../styles/card-style/card.css'
-import '../../styles/button-style/button.css'
+import s from '../../styles/cardStyle/card.module.scss'
 
 const Card = ({ personData }) => {
 
-    const navigateTo = useNavigate();
+    const navigate = useNavigate();
 
     return (
-        <div className="card">
+        <div className={s.card}>
             <div>
                 ФИО: {personData.name}
             </div>
@@ -17,11 +16,11 @@ const Card = ({ personData }) => {
             <div>
                 UserName: {personData.username}
             </div>
-            <div className='card__button'>
+            <div className={s.card__button}>
                 <div>
                     Phone: {personData.phone}
                 </div>
-                <button onClick={() => navigateTo(`users/${personData.id}`)}>
+                <button onClick={() => navigate(`users/${personData.id}`)}>
                     Перейти
                 </button>
             </div>

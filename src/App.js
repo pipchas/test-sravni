@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
-import MainPage from './pages/main-page/MainPage';
-import UserInfo from './pages/user-info/UserInfo';
+import MainPage from './pages/mainPage/MainPage';
+import UserInfo from './pages/userInfo/UserInfo';
 
-import './styles/main-style/main.css'
+import s from './styles/mainStyle/main.module.scss'
 
 function App() {
 
   return (
     <BrowserRouter>
-      <div className='wrapper'>
+      <div className={s.wrapper}>
         <Header />
         <main>
           <Routes>
